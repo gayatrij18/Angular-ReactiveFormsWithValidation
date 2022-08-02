@@ -1,0 +1,13 @@
+.box{
+    
+    width: 900px;
+   
+    padding: 50px;
+    margin: 20px;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    
+}

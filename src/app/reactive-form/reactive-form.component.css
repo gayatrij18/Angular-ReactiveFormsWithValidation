@@ -1,0 +1,15 @@
+.heading {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin: 40px;
+    color: rgb(69, 66, 70);
+  }
+
+  input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.has-error{
+  border: 1px solid red;
+}

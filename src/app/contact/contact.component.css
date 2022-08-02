@@ -1,0 +1,30 @@
+/* .box{
+    
+    width: 1100px;
+    height: 300px;
+    border: 1px solid rgb(206, 209, 206);
+    padding: 50px;
+    padding-left: 50px;
+    margin: 50px;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color:lightgray;
+    
+} */
+
+.box{
+    
+    width: 900px;
+    border: 1px solid rgb(206, 209, 206);
+    padding: 50px;
+    margin: 20px;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    
+}

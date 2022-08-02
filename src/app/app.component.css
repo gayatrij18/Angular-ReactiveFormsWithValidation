@@ -1,0 +1,27 @@
+.box{
+    
+    width: 1140px;
+    height: 220px;
+    border: 1px solid rgb(206, 209, 206);
+    padding-top: 20px;
+    padding-left: 20px;
+   
+    
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 25%;
+    
+    transform: translate(-50%, -50%);
+    background-color:rgb(233, 227, 227);
+    
+}
+
+.ButtonState:checked + .Button{background:#fff;}
+
+.buttonClicked{
+    box-shadow: lightseagreen;
+    color: lime;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

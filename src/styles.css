@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #fdf9fd;
+    height: 95vh;
+  }
+  
+  .form-container {
+      width: 500px;
+      margin: 50px auto;
+  }
+  
+  .heading {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin: 40px;
+    color: darkviolet;
+  }

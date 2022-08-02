@@ -1,0 +1,211 @@
+<div class="container">
+    <div class="heading">Employee Registration Form(using Reactive Form)</div>
+    <div class="form-container">
+      <form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="form-group">
+          <!-- <label for="uname">Username</label> -->
+          <input
+           
+            type="text"
+            class="form-control"
+            id="fullName"
+            formControlName = "fullName"
+            placeholder="Full Name"
+            required
+            
+          />
+          <small class="text-danger"
+            *ngIf="myReactiveForm.get('fullName').errors && myReactiveForm.get('fullName').touched && !myReactiveForm.get('fullName')['required']">
+            Full Name is required and must have a valid name
+          </small>
+         
+          <p></p>
+        </div>
+  
+        <div class="form-group">
+          <!-- <label for="emailAddress">Email address</label> -->
+          <input
+           
+            name="emailAddress"
+            type="email"
+            class="form-control"
+            id="emailAddress"
+            formControlName = "email"
+            placeholder="Email"
+            required
+        />
+        <small class="text-danger"
+        *ngIf="myReactiveForm.get('email').errors && !myReactiveForm.get('email').valid && myReactiveForm.get('email').dirty">
+            Please enter a valid email address, e.g., john@example.com
+        </small>
+
+        <small class="text-danger"
+        *ngIf="myReactiveForm.get('email').touched && !myReactiveForm.get('email')['required']">
+            Email is Required
+        </small>
+       
+        </div>
+        <p></p>
+        <div class="form-group">
+            <!-- <label for="emailAddress">Email address</label> -->
+            <input
+             
+              name="address"
+              type="text"
+              class="form-control"
+              id="address"
+              formControlName = "address"
+              placeholder="Address"
+              required
+            
+            />
+            <small class="text-danger"
+            *ngIf="myReactiveForm.get('address').errors && myReactiveForm.get('address').touched && !myReactiveForm.get('address')['required']">
+            Address is required
+          </small>
+        
+          </div>
+          <p></p>
+          <div class="form-group">
+            <!-- <label for="emailAddress">Email address</label> -->
+            <input
+              name="city"
+              type="text"
+              class="form-control"
+              id="city"
+              formControlName = "city"
+              placeholder="City"
+              required
+             
+            />
+            <small class="text-danger"
+            *ngIf="myReactiveForm.get('city').errors && myReactiveForm.get('city').touched && !myReactiveForm.get('city')['required']">
+           City is required
+          </small>
+          </div>
+        <p></p>
+        <div class="form-group">
+            <!-- <label for="emailAddress">Email address</label> -->
+            <input
+              
+              name="phoneNumber"
+              type="text"
+              class="form-control"
+              id="phoneNumber"
+              formControlName = "phoneNo"
+              placeholder="Phone No."
+              required
+             
+            />
+            <small class="text-danger"
+            *ngIf="(myReactiveForm.get('phoneNo').touched || myReactiveForm.get('phoneNo').dirty) && myReactiveForm.controls['phoneNo'].hasError('required') 
+            ">
+            phoneNumber is required
+          </small>
+          <!-- !myReactiveForm.get('phoneNo')['required'] -->
+          <small class="text-danger"
+            *ngIf="myReactiveForm.get('phoneNo').dirty 
+            && myReactiveForm.controls['phoneNo'].hasError('minlength')">
+            Phone number must be minimum 10 digits in length
+          </small>
+          <!-- !myReactiveForm.get('phoneNo')['minlength'] -->
+          <small class="text-danger"
+            *ngIf="myReactiveForm.get('phoneNo').dirty 
+            && myReactiveForm.controls['phoneNo'].hasError('maxlength')">
+            Phone number must be maximum 12 digits in length
+          </small>
+            
+          </div>
+          <p></p>
+
+
+          <div gModelGroup = "passwordGroup"
+          >
+            <div class="form-group">
+              <!-- <label for="emailAddress">Email address</label> -->
+              <input
+              [class.has-error] = "myReactiveForm.get('confirmPassword').touched && 
+              myReactiveForm.get('confirmPassword').invalid
+              && !myReactiveForm.controls['confirmPassword'].hasError('required')"
+                name="password"
+                type="password"
+                class="form-control"
+                id="password"
+                formControlName = "password"
+                placeholder="Password"
+                (input)="myReactiveForm.get('confirmPassword').updateValueAndValidity()"
+                required
+                
+              />
+              <small class="text-danger"
+              *ngIf="myReactiveForm.get('password').touched && myReactiveForm.controls['password'].hasError('required')">
+              Password is required
+            </small>
+  
+            <small class="text-danger"
+              *ngIf="myReactiveForm.get('password').dirty 
+              && myReactiveForm.controls['password'].hasError('minlength')">
+              Minimum password length is 6 characters
+            </small>
+              
+              
+            </div>
+            <p></p>
+            <div class="form-group">
+              <!-- <label for="emailAddress">Email address</label> -->
+              <input
+                
+                name="confirmPassword"
+                type="password"
+                class="form-control"
+                id="confirmPassword"
+                appConfirmEqualValidator = "password"
+                formControlName = "confirmPassword"
+                placeholder="Confirm Password"
+                required
+              />
+              <small class="text-danger"
+              *ngIf="myReactiveForm.get('confirmPassword').touched && myReactiveForm.controls['confirmPassword'].hasError('required')">
+              Confirm password is required<br>
+            </small>
+            
+            <small class="text-danger"
+            *ngIf=" myReactiveForm.get('confirmPassword').dirty && 
+            myReactiveForm.controls['confirmPassword'].hasError('notEqual') &&
+            !myReactiveForm.controls['confirmPassword'].hasError('required')">
+            Password Mismatch
+          </small>
+            </div>
+            <p></p>
+
+          </div>
+         
+  
+        <div class="">
+          <div class="form-group form-check">
+            <input
+               
+              name="readTerms"
+              type="checkbox"
+              class="form-check-input"
+              id="readTerms"
+              required
+            />
+            <label class="form-check-label" for="readTerms"
+              >I have read terms and conditions</label
+            >
+          </div>
+          <p></p>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            
+          >
+            Sign Up
+          </button>
+          
+        </div>
+      </form>
+    </div>
+  </div>
+  

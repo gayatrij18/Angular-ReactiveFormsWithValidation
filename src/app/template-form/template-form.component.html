@@ -1,0 +1,211 @@
+<div class="container">
+    <div class="heading">User Registration using Template Driven Form</div>
+    <div class="form-container">
+      <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" novalidate>
+        <div class="form-group">
+          <!-- <label for="uname">Username</label> -->
+          <input
+            ngModel
+            name="uname"
+            required
+            type="text"
+            class="form-control"
+            id="uname"
+            placeholder="Full Name"
+            #uname="ngModel"
+            [(ngModel)]="fullName"
+          />
+          <small *ngIf="!uname.valid && uname.touched"
+            >Fullname is required and must be a valid name</small
+          >
+          <p></p>
+        </div>
+  
+        <div class="form-group">
+          <!-- <label for="emailAddress">Email address</label> -->
+          <input
+            ngModel
+            name="emailAddress"
+            required
+            email
+            type="email"
+            class="form-control"
+            id="emailAddress"
+            placeholder="Email"
+            
+            #emailAddress="ngModel"
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+          />
+          
+          <small
+            *ngIf="
+              emailAddress.errors &&
+              emailAddress.errors['required'] &&
+              emailAddress.touched
+            "
+            >Email Address is required</small
+          >
+          <small
+            *ngIf="
+              emailAddress.errors &&
+              
+              emailAddress.errors['pattern'] 
+            "
+            >Please enter a valid email address, eg,. john@example.com</small
+          >
+        </div>
+        <p></p>
+        <div class="form-group">
+            <!-- <label for="emailAddress">Email address</label> -->
+            <input
+              ngModel
+              name="phoneNumber"
+              required
+              maxlength="12"
+              minlength="10"
+              phone
+              type="text"
+              class="form-control"
+              id="phoneNumber"
+              placeholder="Phone No."
+              pattern="^\d{10}(\d{2})?$"
+              #phoneNumber="ngModel"
+            />
+            
+            <small
+              *ngIf="
+              phoneNumber.errors &&
+              phoneNumber.errors['required'] &&
+              phoneNumber.touched
+              "
+              >Phone Number is required<br></small
+            >
+            <small
+            *ngIf="
+            phoneNumber.errors &&
+            phoneNumber.errors['pattern'] &&
+            phoneNumber.touched
+             "
+            >Phone number must be minimum 10 digits and maximum 12 digits in length <br></small
+            >
+            <!-- <small
+              *ngIf="
+              phoneNumber.errors &&
+              phoneNumber.errors['minlength'] ">
+              
+              Min length should be 10 <br>
+            </small> -->
+
+            <small
+            *ngIf="
+           
+            phoneNumber.errors &&
+            phoneNumber.errors['maxlength']"
+            
+            
+            >Max length should be 12</small
+          >
+            
+          </div>
+          <p></p>
+          <div class="form-group">
+            <!-- <label for="emailAddress">Email address</label> -->
+            <input
+              ngModel
+              name="password"
+              required
+              minlength="6"
+              password
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Password"
+              #password="ngModel"
+            />
+            
+            <small
+              *ngIf="
+              password.errors &&
+              password.errors['required'] &&
+              password.touched
+              "
+              >Password is required</small
+            >
+            <small
+              *ngIf="
+              password.errors &&
+              password.errors['minlength'] &&
+              password.touched
+              "
+              >Please enter a strong password with minimum 6 characters</small
+            >
+          </div>
+          <p></p>
+          <div class="form-group">
+            <!-- <label for="emailAddress">Email address</label> -->
+            <input
+              ngModel
+              name="confirmPassword"
+              required
+              confirmPassword
+              type="password"
+              class="form-control"
+              id="confirmPassword"
+              placeholder="Confirm Password"
+              #confirmPassword="ngModel"
+            />
+            
+            <small
+              *ngIf="
+              confirmPassword.errors &&
+              confirmPassword.errors['required'] &&
+              confirmPassword.touched
+              "
+              >Please confirm the password</small
+            >
+            <!-- <small
+              *ngIf="
+              confirmPassword.errors &&
+              confirmPassword.errors['confirmPassword'] &&
+              confirmPassword.touched
+              "
+              >Confirm Password field should be valid</small
+            > -->
+            <small
+              *ngIf="
+              
+              confirmPassword.value != password.value"
+              
+              >Password Mismatch</small
+            >
+          </div>
+          <p></p>
+  
+        <div class="">
+          <div class="form-group form-check">
+            <input
+              [ngModel]="true"
+              name="readTerms"
+              type="checkbox"
+              class="form-check-input"
+              id="readTerms"
+            />
+            <label class="form-check-label" for="readTerms"
+              >I have read terms and conditions</label
+            >
+          </div>
+          <p></p>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!myForm.valid"
+            
+          >
+            Sign Up
+          </button>
+          
+        </div>
+      </form>
+    </div>
+  </div>
+  

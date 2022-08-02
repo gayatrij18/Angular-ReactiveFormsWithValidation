@@ -1,0 +1,29 @@
+.box{
+    
+    width: 900px;
+   
+    padding: 50px;
+    margin: 20px;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    
+}
+.product-detail{
+    position: absolute;
+    left: 13%;
+    top: 50%;
+    text-align: left;
+    transform: translate(-50%, -50%);
+}
+
+.product-img{
+    position: absolute;
+    left: 150%;
+    top: 40%;
+    
+    transform: translate(2  50%, -15%);
+
+}
